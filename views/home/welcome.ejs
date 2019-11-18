@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <div>
+      <!--
+      <div class="jumbotron text-center">
+        <h1>SSOKSSOK</h1>
+        <P>SSOKSSOK Main 페이지 입니다.</P>
+      </div>
+    -->
+    <div class="banner" id="home">
+    	<div class="container">
+    		<div class="row banner-text">
+    			<div class="slider-info col-lg-6">
+    				<div class="banner-info-grid mt-lg-5">
+    					<h2>Welcome To SSOKSSOK </h2>
+    					<p>SSOKSSOK Main 페이지 입니다.</p>
+    				</div>
+
+            <% if(isAuthenticated){ %>
+
+  <div class="banner-info-grid mt-lg-5">
+    <h4 ><%= currentUser.name %>님 환영합니다!</h4>
+  </div>
+
+              <!-- 로그인을 안했을때 나타나는 메인페이지 -->
+            <% } else { %>
+
+    				<a class="btn mr-2 text-capitalize" href="/users/new">시작하기 </a>
+    				<a class="btn text-capitalize" href="/login">로그인 </a>
+
+                <% } %>
+    			</div>
+    			<div class="col-lg-6 col-md-8 mt-lg-0 mt-sm-5 mt-3 banner-image text-lg-center">
+            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FFp2Bk%2Fbtqw1vuFNaC%2FB5aTHBYtudsb8Cxk8d4hl1%2Fimg.png" alt class = "img-fluid">
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+
+
+<!-- 로그인을 했을때 메인페이지에는 환영한다는 메시지가 뜨고 맞춤형 정보제공  -->
+      <% if(isAuthenticated){ %>
+
+
+        <% include ../partials/personal_ssockssock %>
+
+
+        <!-- 로그인을 안했을때 나타나는 메인페이지 -->
+      <% } else { %>
+        <!-- about -->
+        <section class="about py-5" id="about">
+          <div class="container py-lg-5 py-sm-3">
+            <div class="row">
+              <div class="col-lg-3 about-left">
+                <h3 class="heading mb-lg-5 mb-4">About us</h3>
+              </div>
+              <div class="col-lg-5 col-md-7 about-text">
+                <h3>장애인 맞춤형 채용공고 제공사이트 SSOCK SSOCK에 오신것을 환영합니다! </h3>
+                <p class="mt-3">저희 사이트는 전국에 있는 장애인대상 채용정보 가지고 와 여러분께 제공합니다.
+                본인의 지역, 관심사, 장애유형등을 입력하면 그 정보를 기반으로 개인별 맞춤형 채용정보를 제공해줍니다</p>
+                <p class="mt-2">지금바로 시작하세요!</p>
+
+
+
+              </div>
+
+              <div class="col-lg-4 col-md-5 about-img">
+                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbaGejv%2Fbtqw1uiL6zU%2FoEi2DP3vTDr3c8WN51S9bK%2Fimg.png" alt="" class="img-fluid"/>
+              </div>
+            </div>
+          </div>
+
+
+        </section>
+
+
+        <section class="process py-5" id="process">
+        	<div class="container py-md-3">
+        		<h3 class="heading mb-5">What we do</h3>
+        		<div class="row process-grids">
+        			<div class="col-lg-3 col-md-6 my-lg-4 w3pvt-ab position-relative">
+        				<div class="">
+        					<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FGphOT%2Fbtqw2AvOxFp%2FsaYF3IICn7TaEfylJnqtq1%2Fimg.png" alt="" class="img-fluid">
+        				</div>
+        				<h4 class="feed-title my-md-3 mb-3">전국 장애인 대상 채용사이트 크롤링</h4>
+        				<p> 전국에 있는 수백여개의 장애인 대상 채용 정보를 가져와 이 한 곳에 모아놨습니다</p>
+        			</div>
+        			<div class="col-lg-3 col-md-6 my-lg-4 mt-md-0 mt-4 w3pvt-ab position-relative">
+        				<div class="">
+        					<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2F3SvIw%2Fbtqw3kMZZEI%2FO4nsDkH6ppFXFx53aPapuK%2Fimg.png" alt="" class="img-fluid">
+        				</div>
+        				<h4 class="feed-title my-md-3 mb-3">맞춤형 채용 정보 제공</h4>
+        				<p>수많은 채용정보가 있지만 나의여건에 맞는 공고가 무엇인지 모르시겠다고요? SSOCK SSOCK에서는 본인의 지역, 여건, 선호사항등에 따라서 나에게 딱 맞는 맞춤형 채용정보를 제공합니다.</p>
+        			</div>
+        			<div class="col-lg-3 col-md-6 my-lg-4 mt-sm-5 mt-4 w3pvt-ab position-relative">
+        				<div class="">
+        					<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FddwUZq%2Fbtqw2Abs3aU%2FQnrbPvDviE8jRIM3rv2lPk%2Fimg.png" alt="" class="img-fluid">
+        				</div>
+        				<h4 class="feed-title my-md-3 mb-3">커뮤니티</h4>
+        				<p>전국에 있는 장애인 취준생들과 교류하며 정보를 공유해보세요!</p>
+        			</div>
+        			<div class="col-lg-3 col-md-6 mt-lg-4 mt-sm-5 mt-4 w3pvt-ab">
+        				<div class="">
+        					<img src="https://k.kakaocdn.net/dn/1Vbeh/btqw0aL1gyd/zdiDRWRKByGV5PAmuF2R4k/img.png" alt="" class="img-fluid">
+        				</div>
+        				<h4 class="feed-title my-md-3 mb-3">성공취업 기원</h4>
+        				<p>장애인 분들의 자립과 취업을 위하여 좀더 나은 서비스를 드릴수 있도록 항상 노력하겠습니다</p>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+
+
+        <!-- //about -->
+
+  
+
+
+<!-- 회원가입페이지 -->
+      <!-- <div class="col-md-5 relative align-self-center">
+
+                <form action="#" class="bg-white rounded pb_form_v1">
+                  <h2 class="mb-4 mt-0 text-center">Sign Up for Free</h2>
+                  <div class="form-group">
+                    <input type="text" class="form-control pb_height-50 reverse" placeholder="Full name">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control pb_height-50 reverse" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control pb_height-50 reverse" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <div class="pb_select-wrap">
+                      <select class="form-control pb_height-50 reverse">
+                        <option value="" selected>Type</option>
+                        <option value="">Basic</option>
+                        <option value="">Business</option>
+                        <option value="">Free</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Register">
+                  </div>
+                </form>
+
+              </div> -->
+
+
+
+
+      <% } %>
+
+    	</div>
+
+    </div>
+<% include ../partials/footer.ejs %>
+    <!-- move top -->
+  </body>
+</html>

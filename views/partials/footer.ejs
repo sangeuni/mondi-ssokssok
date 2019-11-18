@@ -1,0 +1,81 @@
+
+    <!-- footer -->
+    <footer class="footer-emp-w3ls py-5">
+      <div class="container pt-lg-3">
+        <div class="row footer-top">
+          <div class="col-lg-4 col-sm-6 footer-grid-wthree">
+            <h4 class="footer-title text-uppercase mb-4">Who We Are</h4>
+            <div class="contact-info">
+              <p>장애인을위한 채용정보를 제공해주고 있습니다.</p>
+              <h4 class="mt-3">Trusted by more than 1000+ people</h4>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 footer-grid-wthree mt-sm-0 mt-4">
+            <h3 class="footer-title text-uppercase mb-4">Latest News</h3>
+            <div class="contact-info">
+              <div class="footer-style-w3ls">
+                <h4 class="mb-2"><span class="fa mr-1 fa-twitter"></span> Sed ut piciatis unde natus</h4>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit volupta....</p>
+                <p class="date">23 Nov 2018.</p>
+              </div>
+              <div class="footer-style-w3ls mt-3">
+                <h4 class="mb-2"><span class="fa mr-1 fa-twitter"></span> Modi tempra incunt sit</h4>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit volupta....</p>
+                <p class="date">24 Nov 2018.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 footer-grid-wthree mt-lg-0 mt-sm-5 mt-4">
+            <h3 class="footer-title text-uppercase mb-4">Contact Us</h3>
+            <div class="contact-info">
+              <div class="footer-style-w3ls">
+                <h4 class="mb-2"> <span class="fa mr-1 fa-map-marker"></span> Location</h4>
+                <p>광주광역시 북구 용봉로 77 전남대학교 정보전산원</p>
+              </div>
+              <div class="footer-style-w3ls my-3">
+                <h4 class="mb-2"><span class="fa mr-1 fa-phone"></span> Phone</h4>
+                <p>+121 098 8907 9987</p>
+              </div>
+              <div class="footer-style-w3ls">
+                <h4 class="mb-2"><span class="fa mr-1 fa-envelope-open"></span> Email</h4>
+                <p><a href="mailto:info@example.com">info@example.com</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6 footer-grid-wthree mt-lg-0 mt-sm-5 mt-4">
+            <h3 class="footer-title text-uppercase mb-4">Quick Links</h3>
+            <ul class="links list-unstyled">
+
+                <li class=""><a href="/">Home</a></li>
+                <li class=""><a href="/about">About</a></li>
+                <li class=""><a href="/posts">Community</a></li>
+                <% if(isAuthenticated){ %>
+                <li><a href="/users/<%= currentUser.username %>">My Account</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <% } else { %>
+                <li><a href="/users/new">Sign Up</a></li>
+                <li><a href="/login">Login</a></li>
+                <% } %>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- //footer -->
+
+    <!-- copyright -->
+    <div class="copy-right-top border-top">
+      <p class="copy-right text-center py-4">&copy; 2019 Digital. All Rights Reserved | Design by
+        <a href="http://w3layouts.com/"> W3layouts </a>
+      </p>
+    </div>
+    <!-- //copyright -->
+
+    <!-- move top -->
+    <div class="move-top text-right">
+      <a href="#home" class="move-top">
+        <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+      </a>
+    </div>
+    <!-- move top -->

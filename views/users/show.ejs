@@ -1,0 +1,177 @@
+<!-- views/users/show.ejs -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <div>
+    <div class="jumbotron text-center">
+      <h1>My Account</h1>
+    </div>
+
+    <div class="container user user-show">
+
+      <div class="buttons">
+        <a class="btn btn-default" href="/users">Back</a>
+        <% if(isAuthenticated && currentUser.id == user.id){ %>
+          <a class="btn btn-default" href="/users/<%= user.username %>/edit">Edit</a>
+        <% } %>
+      </div>
+
+      <form class="user-form form-horizontal" action="/users" method="post">
+        <div class="contentBox">
+          <h3 class="contentBoxTop">내 계정</h3>
+          <fieldset disabled>
+            <!-- 이름 -->
+            <div class="form-group">
+              <label for="name" class="col-sm-3">name</label>
+              <div class="col-sm-9">
+                <input class="form-control" type="text" id="name" name="name" value="<%= user.name %>">
+              </div>
+            </div>
+            <!-- 이메일 -->
+            <div class="form-group">
+              <label for="email" class="col-sm-3">e-mail</label>
+              <div class="col-sm-9">
+                <input class="form-control" type="text" id="email" name="email" value="<%= user.email %>">
+              </div>
+            </div>
+
+
+          </fieldset>
+        </div>
+
+        <div class="contentBox">
+          <h3 class="contentBoxTop">상세정보</h3>
+          <fieldset disabled>
+            <!-- 희망지역 -->
+            <div class="form-group">
+              <label for="local" class="col-sm-3">희망지역</label>
+              <div class="col-sm-9">
+                <input class="form-control" type="text" id="local" name="local" value="<%= user.local %>">
+              </div>
+            </div>
+            <!-- 최종학력 -->
+            <div class="form-group">
+              <label for="background" class="col-sm-3">최종학력</label>
+              <div class="col-sm-9">
+                <input class="form-control" type="text" id="background" name="background" value="<%= user.background %>">
+              </div>
+            </div>
+            <!-- 고용형태 -->
+            <div class="form-group">
+              <label for="etype" class="col-sm-3">고용형태</label>
+              <div class="col-sm-9">
+                <input class="form-control" type="text" id="etype" name="etype" value="<%= user.etype %>">
+              </div>
+            </div>
+            <!-- 경력 -->
+            <div class="form-group">
+              <label for="career" class="col-sm-3">경력</label>
+              <div class="col-sm-9">
+                <input class="form-control" type="text" id="career" name="career" value="<%= user.career %>">
+              </div>
+            </div>
+            <!-- 장애유형 -->
+            <div class="form-group">
+              <label for="dtype" class="col-sm-3">장애유형</label>
+              <div class="col-sm-9">
+                <input class="form-control" type="text" id="dtype" name="dtype" value="<%= user.dtype %>">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </form>
+
+
+
+
+</div>
+</div > <!-- container end -->
+<div>
+    <script type="text/javascript">
+
+//  document.querySelector("#load").addEventListener("click", loadData, false);
+
+//  document.querySelector("#delete").addEventListener("click", deleteData, false);
+
+loadData();
+    function loadData(){
+
+
+      document.write('<div class="container"style="padding: 0px 0px 40px 0px"><table id= "ssock-ssock-table" style="margin-left: auto; margin-right: auto;"><thread><tr><th>내가저장한 채용정보</th><th><button id="delete">전체삭제</button></th></tr></thread><tbody>');
+
+      for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+   var value = localStorage.getItem( localStorage.key( i ) );
+   var key= localStorage.key(i);
+
+  var jbSplit = value.split(',');
+  var link=jbSplit[0];
+
+   console.log(value);
+
+
+  document.write('<tr><td>');
+  document.write('<a href="');
+document.write((link));
+  document.write('">');
+  document.write((key));
+  document.write('</a>');
+  document.write('</td>');
+
+// //직무
+//   document.write('</td>')
+//   document.write('<td>');
+// //마감일
+//   document.write('</td>')
+ document.write('<td><button class = "delBtn" onclick="deleteLine(this);"></button></td>');
+
+  document.write('</tr>');
+
+
+  }
+    document.write('</tbody></table></div>');
+  //console.log("삭제전");
+//  localStorage.removeItem(key);
+//  console.log("삭제후");
+
+if(localStorage.length==0){
+document.write('<div  style="padding: 0px 0px 40px 0px" class="container home home-welcome" >저장된 정보가 없습니다</div>');
+}
+    }
+
+  document.querySelector("#delete").addEventListener("click", deleteData, false);
+
+    function deleteData(){
+  localStorage.clear();
+  location.reload();
+    }
+
+
+    function deleteLine(obj) {
+      var tr = $(obj).parent().parent();
+      var td = tr.children();
+
+
+
+      var _id = td.eq(0).text();
+      var title = td.eq(1).text();
+      var job = td.eq(2).text();
+      var enddate = td.eq(3).text();
+        console.log("클릭한 Row의 모든 데이터 : "+title);
+        //라인 삭제
+        localStorage.removeItem(_id);
+        tr.remove();
+    }
+
+
+
+    </script>
+  </div>
+
+<% include ../partials/footer.ejs %>
+  </body>
+</html>
